@@ -39,16 +39,17 @@ const App = () => {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
+    backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
   },
   modalView: {
     margin: 20,
-    backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 35,
+    width: '100%',
+    backgroundColor: 'rgba(237, 233, 233, 1)',
+    padding: 20,
     alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: '#000000ff',
     shadowOffset: {
       width: 0,
       height: 2,
@@ -58,23 +59,22 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   button: {
-    borderRadius: 20,
+    borderRadius: 10,
     padding: 10,
-    elevation: 2,
   },
   buttonOpen: {
-    backgroundColor: '#F194FF',
+    backgroundColor: 'white',
   },
   buttonClose: {
-    backgroundColor: '#2196F3',
+    backgroundColor: 'rgba(237, 233, 233, 1)',
   },
   textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
+    color: 'black',
     textAlign: 'center',
+    fontWeight: 'bold'
   },
   modalText: {
-    marginBottom: 15,
+    marginBottom: 50,
     textAlign: 'center',
   },
 });
