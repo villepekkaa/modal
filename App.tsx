@@ -1,31 +1,18 @@
 import React, {useState} from 'react';
-import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
+import {StyleSheet, Text, Pressable} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+import PressableModal from './components/PressableModal';
 
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.centeredView}>
-        <Modal
-          animationType="slide"
-          transparent={true}
+        <PressableModal
           visible={modalVisible}
-          onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-            setModalVisible(!modalVisible);
-          }}>
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>This is modal...</Text>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}>
-                <Text style={styles.textStyle}>Close</Text>
-              </Pressable>
-            </View>
-          </View>
-        </Modal>
+          onClose={() => setModalVisible(false)}
+          message="This is modal..."
+        />
         <Pressable
           style={[styles.button, styles.buttonOpen]}
           onPress={() => setModalVisible(true)}>
@@ -43,21 +30,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  modalView: {
-    margin: 20,
-    width: '100%',
-    backgroundColor: 'rgba(237, 233, 233, 1)',
-    padding: 20,
-    alignItems: 'center',
-    shadowColor: '#000000ff',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
   button: {
     borderRadius: 10,
     padding: 10,
@@ -65,17 +37,10 @@ const styles = StyleSheet.create({
   buttonOpen: {
     backgroundColor: 'white',
   },
-  buttonClose: {
-    backgroundColor: 'rgba(237, 233, 233, 1)',
-  },
   textStyle: {
     color: 'black',
     textAlign: 'center',
-    fontWeight: 'bold'
-  },
-  modalText: {
-    marginBottom: 50,
-    textAlign: 'center',
+    fontWeight: 'bold',
   },
 });
 
